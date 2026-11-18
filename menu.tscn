@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://4r27mjhtltfa"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://m1bqugykge8c" path="res://menu.gd" id="1_menu"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=1891892443]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,16 +11,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_menu")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=224230674]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2, 0.4, 0.18, 1)
+color = Color(0.8352941, 0.52156866, 0.21176471, 0.7372549)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=1744326578]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,36 +28,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Box" type="VBoxContainer" parent="Center"]
+[node name="Box" type="VBoxContainer" parent="Center" unique_id=17737369]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="Center/Box"]
+[node name="Title" type="Label" parent="Center/Box" unique_id=911811715]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
-text = "Point Collecting"
+text = "Egg Hunter"
 horizontal_alignment = 1
 
-[node name="Result" type="Label" parent="Center/Box"]
+[node name="Result" type="Label" parent="Center/Box" unique_id=907088478]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 horizontal_alignment = 1
 
-[node name="Highscore" type="Label" parent="Center/Box"]
+[node name="Highscore" type="Label" parent="Center/Box" unique_id=1418020546]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Highscore: 0"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="Center/Box"]
+[node name="StartButton" type="Button" parent="Center/Box" unique_id=1091570993]
 custom_minimum_size = Vector2(240, 56)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 28
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="Center/Box"]
+[node name="QuitButton" type="Button" parent="Center/Box" unique_id=1429696841]
 custom_minimum_size = Vector2(240, 56)
 layout_mode = 2
 size_flags_horizontal = 4

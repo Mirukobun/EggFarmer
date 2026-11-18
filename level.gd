@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var pumpkin_scene: PackedScene
+@export var chicken_scene: PackedScene
 @export var start_count: int = 3
 @export var edge_margin: float = 40.0
 @export var min_distance_from_player: float = 120.0
@@ -17,8 +18,9 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	for i in start_count:
 		spawn_pumpkin()
-
-
+	for i in start_count:
+		spawn_chicken()
+		
 func _process(delta: float) -> void:
 	score_label.text = "Score: " + str(score)
 	time_label.text = "Time: " + str(ceili(timer.time_left))
@@ -30,6 +32,11 @@ func spawn_pumpkin() -> void:
 	pumpkin.picked_up.connect(_on_pumpkin_picked_up)
 	add_child(pumpkin)
 
+func spawn_chicken() -> void:
+	var chicken = chicken_scene.instantiate()
+	chicken.position = random_spot()
+	chicken.picked_up.connect(_on_chicken_picked_up)
+	add_child(chicken)
 
 func random_spot() -> Vector2:
 	var area := Global.view_rect().grow(-edge_margin)
@@ -48,7 +55,11 @@ func _on_pumpkin_picked_up() -> void:
 	score += 1
 	spawn_pumpkin.call_deferred()
 
-
+func _on_chicken_picked_up() -> void:
+	if score > 0:
+		score -= 1
+	spawn_chicken.call_deferred()
+	
 func _on_timer_timeout() -> void:
 	Global.finish_round(score)
 	get_tree().change_scene_to_file("res://menu.tscn")

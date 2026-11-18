@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_PATH := "user://save.cfg"
-const WIN_SCORE := 4
+const WIN_SCORE := 5
 var highscore: int = 0
 var last_score: int = 0
 var played: bool = false
